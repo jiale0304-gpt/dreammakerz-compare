@@ -100,6 +100,7 @@ nav.menu a.nav-cta:hover{background:var(--wa-hover)}
 .hero-stats{display:flex;gap:26px;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);flex-wrap:wrap}
 .hero-stats div{font-size:.84rem;color:var(--on-navy-muted)}
 .hero-stats b{display:block;font-family:var(--f-display);font-size:1.5rem;color:#fff}
+.m-only{display:none}
 
 .radar{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:18px 18px 14px}
 .radar-title{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
@@ -331,8 +332,18 @@ footer{background:#07142A;color:var(--on-navy-muted);padding:56px 0 110px;font-s
   .quiz{padding:22px 18px}
   .chips{gap:8px}.chip{padding:0 14px;font-size:.86rem}
   .result .btn-wa{font-size:.92rem;padding:0 16px}
-  .hero-stats{gap:18px}
-  .hero-ctas .btn{flex:1 1 100%}
+  .m-only{display:inline}.d-only{display:none}
+  .hero .wrap{padding-top:36px;padding-bottom:40px}
+  .hero h1{margin:10px 0 14px}
+  .hero p.lead{font-size:1rem}
+  .radar{display:none}
+  .hero-ctas{gap:10px;margin-top:22px}
+  .hero-ctas .btn{flex:1 1 0;min-height:50px;padding:0 10px;font-size:.92rem;gap:6px}
+  .hero-ctas .btn svg{width:16px;height:16px}
+  .micro{font-size:.8rem;margin-top:12px}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px;padding-top:18px}
+  .hero-stats div{font-size:.72rem;line-height:1.35}
+  .hero-stats b{font-size:1.1rem;margin-bottom:2px}
 }
 @media (min-width:761px){.swipe-hint{display:none}}
 @media (max-width:420px){.buyers{grid-template-columns:1fr}}
@@ -393,16 +404,16 @@ footer{background:#07142A;color:var(--on-navy-muted);padding:56px 0 110px;font-s
     <div>
       <span class="eyebrow">JB CIQ &amp; RTS Property Comparison 2026</span>
       <h1 id="hero-h">6 Properties Around JB CIQ &amp; RTS.<br><em>Which One Actually Fits You?</em></h1>
-      <p class="lead">Compare location, walking access, price band, layout, tenure and the real trade-offs across <b>Coronade Twins, R&amp;F Phase 3, Gen Sphere, Causewayz Square, CTC SkyOne</b> and <b>UOA Aethera</b>.</p>
+      <p class="lead"><span class="m-only">Compare walking access, price band, layout and the real trade-offs — side by side, in one page.</span><span class="d-only">Compare location, walking access, price band, layout, tenure and the real trade-offs across <b>Coronade Twins, R&amp;F Phase 3, Gen Sphere, Causewayz Square, CTC SkyOne</b> and <b>UOA Aethera</b>.</span></p>
       <div class="hero-ctas">
         <a href="#compare" class="btn btn-yellow" id="heroCompare">Compare All 6 <svg><use href="#i-arrow"/></svg></a>
         <a href="#shortlist" class="btn btn-ghost" data-cta="hero_shortlist">Help Me Shortlist</a>
       </div>
       <p class="micro"><svg><use href="#i-shield"/></svg>No obligation. Compare first, shortlist later.</p>
       <div class="hero-stats">
-        <div><b>6</b>projects side by side</div>
-        <div><b>~210m–650m</b>published walking distances</div>
-        <div><b>4 questions</b>to a 2–3 project shortlist</div>
+        <div><b>6</b>projects<span class="d-only"> side by side</span></div>
+        <div><b>210–650m</b><span class="d-only">published </span>walk to RTS / CIQ</div>
+        <div><b>4<span class="d-only"> questions</span></b><span class="m-only">questions to a </span><span class="d-only">to a </span>2–3 project shortlist</div>
       </div>
     </div>
 
@@ -1055,10 +1066,12 @@ document.addEventListener('click',e=>{
 });
 $('#heroCompare').addEventListener('click',()=>track('hero_compare_click'));
 
-/* hide mobile sticky bar while quiz is on screen */
+/* hide mobile sticky bar while hero or quiz is on screen */
 if('IntersectionObserver' in window){
   const bar=$('#mSticky');
-  new IntersectionObserver(es=>es.forEach(en=>bar.classList.toggle('hide',en.isIntersecting)),{threshold:.25}).observe($('#shortlist'));
+  const vis=new Set();
+  const io=new IntersectionObserver(es=>{es.forEach(en=>en.isIntersecting?vis.add(en.target):vis.delete(en.target)); bar.classList.toggle('hide',vis.size>0);},{threshold:.15});
+  io.observe($('.hero')); io.observe($('#shortlist'));
 }
 </script>
 </body>
