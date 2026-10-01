@@ -100,7 +100,6 @@ nav.menu a.nav-cta:hover{background:var(--wa-hover)}
 .hero-stats{display:flex;gap:26px;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);flex-wrap:wrap}
 .hero-stats div{font-size:.84rem;color:var(--on-navy-muted)}
 .hero-stats b{display:block;font-family:var(--f-display);font-size:1.5rem;color:#fff}
-.m-only{display:none}
 
 .radar{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:18px 18px 14px}
 .radar-title{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
@@ -155,7 +154,6 @@ table.cmp td.proj{font-family:var(--f-display);font-weight:700;color:var(--navy)
 table.cmp td.proj small{display:block;font-family:var(--f-body);font-weight:400;font-size:.78rem;color:var(--muted);margin-top:2px}
 .price{font-family:var(--f-mono);font-weight:700;color:var(--navy);white-space:nowrap}
 .tenure-verify{color:var(--warn);font-weight:600}
-.m-cards{display:none}
 .empty{padding:36px 20px;text-align:center;color:var(--muted)}
 .price-note{display:flex;gap:10px;align-items:flex-start;margin-top:16px;background:var(--warn-bg);border:1px solid #F1DFA8;border-radius:var(--radius-sm);padding:12px 14px;font-size:.84rem;color:#5B4300}
 .price-note svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--warn)}
@@ -319,20 +317,21 @@ footer{background:#07142A;color:var(--on-navy-muted);padding:56px 0 110px;font-s
   .pc-lists{grid-template-columns:1fr}
   .opts{grid-template-columns:1fr}
   .gets{grid-template-columns:1fr}
-  .table-wrap{display:none}
-  .m-cards{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 16px;margin:0 -20px;-webkit-overflow-scrolling:touch}
-  .mc{scroll-snap-align:center;flex:0 0 84%;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:18px}
-  .mc h3{font-size:1.2rem;color:var(--navy);margin:8px 0 12px}
-  .mc dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:.88rem}
-  .mc dt{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
-  .mc dd{color:var(--ink)}
+  .table-wrap{background:none;border:0;box-shadow:none;border-radius:0;overflow:visible}
+  table.cmp,table.cmp tbody{display:block}
+  table.cmp thead{display:none}
+  table.cmp tbody{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 16px;margin:0 -20px;-webkit-overflow-scrolling:touch}
+  table.cmp tr{display:block;flex:0 0 84%;scroll-snap-align:center;background:#fff!important;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:16px 18px}
+  table.cmp td{display:grid;grid-template-columns:72px 1fr;gap:10px;border:0;padding:6px 0;font-size:.9rem}
+  table.cmp td::before{content:attr(data-label);font-family:var(--f-mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+  table.cmp td.proj{display:block;font-size:1.15rem;padding:0 0 8px}
+  table.cmp td.proj::before{content:none}
   .swipe-hint{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted);margin-bottom:8px}
   .swipe-hint svg{width:16px;height:16px}
   .vs-row{grid-template-columns:1fr}
   .quiz{padding:22px 18px}
   .chips{gap:8px}.chip{padding:0 14px;font-size:.86rem}
   .result .btn-wa{font-size:.92rem;padding:0 16px}
-  .m-only{display:inline}.d-only{display:none}
   .hero .wrap{padding-top:36px;padding-bottom:40px}
   .hero h1{margin:10px 0 14px}
   .hero p.lead{font-size:1rem}
@@ -404,16 +403,16 @@ footer{background:#07142A;color:var(--on-navy-muted);padding:56px 0 110px;font-s
     <div>
       <span class="eyebrow">JB CIQ &amp; RTS Property Comparison 2026</span>
       <h1 id="hero-h">6 Properties Around JB CIQ &amp; RTS.<br><em>Which One Actually Fits You?</em></h1>
-      <p class="lead"><span class="m-only">Compare walking access, price band, layout and the real trade-offs — side by side, in one page.</span><span class="d-only">Compare location, walking access, price band, layout, tenure and the real trade-offs across <b>Coronade Twins, R&amp;F Phase 3, Gen Sphere, Causewayz Square, CTC SkyOne</b> and <b>UOA Aethera</b>.</span></p>
+      <p class="lead">Compare walking access, price band, layout, tenure and the real trade-offs across 6 JB city-centre projects — side by side, on one page.</p>
       <div class="hero-ctas">
         <a href="#compare" class="btn btn-yellow" id="heroCompare">Compare All 6 <svg><use href="#i-arrow"/></svg></a>
         <a href="#shortlist" class="btn btn-ghost" data-cta="hero_shortlist">Help Me Shortlist</a>
       </div>
       <p class="micro"><svg><use href="#i-shield"/></svg>No obligation. Compare first, shortlist later.</p>
       <div class="hero-stats">
-        <div><b>6</b>projects<span class="d-only"> side by side</span></div>
-        <div><b>210–650m</b><span class="d-only">published </span>walk to RTS / CIQ</div>
-        <div><b>4<span class="d-only"> questions</span></b><span class="m-only">questions to a </span><span class="d-only">to a </span>2–3 project shortlist</div>
+        <div><b>6</b>projects side by side</div>
+        <div><b>210–650m</b>walk to RTS / CIQ</div>
+        <div><b>4</b>questions to a 2–3 shortlist</div>
       </div>
     </div>
 
@@ -483,6 +482,7 @@ footer{background:#07142A;color:var(--on-navy-muted);padding:56px 0 110px;font-s
       <button class="linkbtn" id="clearFilters" type="button" hidden>Clear filters</button>
     </div>
 
+    <p class="swipe-hint"><svg><use href="#i-swipe"/></svg>Swipe to compare</p>
     <div class="table-wrap">
       <table class="cmp">
         <thead><tr><th scope="col">Project</th><th scope="col">Broad Price</th><th scope="col">Size</th><th scope="col">Tenure</th><th scope="col">Connectivity (approx.)</th><th scope="col">Comparison Angle</th></tr></thead>
@@ -491,9 +491,6 @@ footer{background:#07142A;color:var(--on-navy-muted);padding:56px 0 110px;font-s
       <div class="empty" id="cmpEmpty" hidden>No project matches every selected filter. Try removing one.</div>
     </div>
 
-    <p class="swipe-hint"><svg><use href="#i-swipe"/></svg>Swipe to compare</p>
-    <div class="m-cards" id="mCards" aria-label="Project comparison cards"></div>
-    <div class="empty" id="mEmpty" hidden>No project matches every selected filter. Try removing one.</div>
 
     <div class="price-note" role="note"><svg><use href="#i-info"/></svg><p><b>Pricing note:</b> broad indicative bands only, not live unit availability. Prices vary by unit type, floor, phase, furnishing and promotion. Distances are project-published or source-reported and approximate.</p></div>
   </div>
@@ -873,24 +870,12 @@ function renderCompare(){
   $('#cmpBody').innerHTML = PROJECTS.map(p=>`
     <tr data-id="${p.id}">
       <td class="proj">${esc(p.name)}${p.sub?`<small>${esc(p.sub)}</small>`:''}</td>
-      <td class="price">${esc(p.price)}</td>
-      <td>${esc(p.size)}</td>
-      <td class="${p.tenureVerify?'tenure-verify':''}">${esc(p.tenure)}</td>
-      <td>${esc(p.distShort)}</td>
-      <td>${esc(p.angle)}</td>
+      <td class="price" data-label="Price">${esc(p.price)}</td>
+      <td data-label="Size">${esc(p.size)}</td>
+      <td class="${p.tenureVerify?'tenure-verify':''}" data-label="Tenure">${esc(p.tenure)}</td>
+      <td data-label="Access">${esc(p.distShort)}</td>
+      <td data-label="Angle">${esc(p.angle)}</td>
     </tr>`).join('');
-  $('#mCards').innerHTML = PROJECTS.map(p=>`
-    <article class="mc" data-id="${p.id}">
-      <span class="tag">${esc(p.tag)}</span>
-      <h3>${esc(p.card||p.name)}</h3>
-      <dl>
-        <dt>Price</dt><dd class="price">${esc(p.price)}</dd>
-        <dt>Size</dt><dd>${esc(p.size)}</dd>
-        <dt>Tenure</dt><dd class="${p.tenureVerify?'tenure-verify':''}">${esc(p.tenure)}</dd>
-        <dt>Access</dt><dd>${esc(p.distShort)}</dd>
-        <dt>Angle</dt><dd>${esc(p.angle)}</dd>
-      </dl>
-    </article>`).join('');
   $('#pGrid').innerHTML = PROJECTS.map((p,i)=>`
     <article class="pcard" data-id="${p.id}" id="p-${p.id}">
       <div class="pc-media">
@@ -936,7 +921,7 @@ function applyFilters(){
   });
   $('#filterCount').innerHTML=`Showing <b>${n} of ${PROJECTS.length}</b> projects`+(active.size?` · ${[...active].map(f=>FILTER_LABEL[f]).join(' + ')}`:'');
   $('#clearFilters').hidden=!active.size;
-  $('#cmpEmpty').hidden=n>0; $('#mEmpty').hidden=n>0;
+  $('#cmpEmpty').hidden=n>0;
 }
 $$('.chip').forEach(c=>c.addEventListener('click',()=>{
   const f=c.dataset.filter, on=!active.has(f);
